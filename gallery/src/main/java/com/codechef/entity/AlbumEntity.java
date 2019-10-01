@@ -1,10 +1,12 @@
 package com.codechef.entity;
 
+import java.io.File;
 import java.time.LocalDateTime;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+@Entity
 @Table(name="album")
 public class AlbumEntity{
 
@@ -24,7 +27,7 @@ public class AlbumEntity{
     @Column(name="description")
     String description;
     @Column(name="coverphoto")
-    String coverPhoto;
+    File coverPhoto;
     @Column(name="timeofcreation")
     LocalDateTime timeOfCreation;
     @Column(name="likescount")
@@ -59,13 +62,7 @@ public class AlbumEntity{
         this.description = description;
     }
 
-    public String getCoverPhoto() {
-        return coverPhoto;
-    }
 
-    public void setCoverPhoto(String coverPhoto) {
-        this.coverPhoto = coverPhoto;
-    }
 
     public LocalDateTime getTimeOfCreation() {
         return timeOfCreation;
@@ -81,6 +78,22 @@ public class AlbumEntity{
 
     public void setLikesCount(Integer likesCount) {
         this.likesCount = likesCount;
+    }
+
+    public File getCoverPhoto() {
+        return coverPhoto;
+    }
+
+    public void setCoverPhoto(File coverPhoto) {
+        this.coverPhoto = coverPhoto;
+    }
+
+    public Set<PhotoEntity> getPhotoEntity() {
+        return photoEntity;
+    }
+
+    public void setPhotoEntity(Set<PhotoEntity> photoEntity) {
+        this.photoEntity = photoEntity;
     }
 
     

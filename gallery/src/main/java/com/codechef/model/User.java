@@ -1,5 +1,7 @@
 package com.codechef.model;
 
+import java.util.Set;
+
 public class User {
     String username;
     String firstName;
@@ -8,6 +10,8 @@ public class User {
     String gender;
     String profilePicture;
     String password;
+
+    Set<Album> album;
 
     public String getUsername() {
         return username;
@@ -64,6 +68,14 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+	public Set<Album> getAlbum() {
+		return album;
+	}
+
+	public void setAlbum(Set<Album> album) {
+		this.album = album;
+	}
 
     
 

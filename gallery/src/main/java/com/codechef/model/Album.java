@@ -1,15 +1,17 @@
 package com.codechef.model;
+import java.io.File;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 public class Album{
 
 Integer albumId;
 String albumName;
 String description;
-String coverPhoto;
+File coverPhoto;
 LocalDateTime timeOfCreation;
 Integer likesCount;
-
+Set<Photo> photo;
     public Integer getAlbumId() {
         return albumId;
     }
@@ -34,13 +36,6 @@ Integer likesCount;
         this.description = description;
     }
 
-    public String getCoverPhoto() {
-        return coverPhoto;
-    }
-
-    public void setCoverPhoto(String coverPhoto) {
-        this.coverPhoto = coverPhoto;
-    }
 
     public LocalDateTime getTimeOfCreation() {
         return timeOfCreation;
@@ -56,6 +51,22 @@ Integer likesCount;
 
     public void setLikesCount(Integer likesCount) {
         this.likesCount = likesCount;
+    }
+
+    public Set<Photo> getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(Set<Photo> photo) {
+        this.photo = photo;
+    }
+
+    public File getCoverPhoto() {
+        return coverPhoto;
+    }
+
+    public void setCoverPhoto(File coverPhoto) {
+        this.coverPhoto = coverPhoto;
     }
 
 

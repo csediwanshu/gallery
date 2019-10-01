@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlbumComponent implements OnInit {
 
+  editalbum:boolean=false;
   constructor() { }
 
   ngOnInit() {
+    sessionStorage.setItem('user', JSON.stringify(null))
   }
 
 }

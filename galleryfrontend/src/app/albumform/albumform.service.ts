@@ -1,25 +1,22 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { User } from '../Shared/model/User';
-import { Observable, throwError } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { throwError, Observable } from 'rxjs';
+import { Album } from '../shared/model/Album';
 
 import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
-
 @Injectable({
   providedIn: 'root'
 })
-export class SignupService {
+export class AlbumformService {
+  constructor(private http: HttpClient) { }
 
-  // private headers=new HttpHeaders({'Content-Type':'application/json','Access-Control-Allow-Origin': '*' });
-  constructor(private http:HttpClient) { }
-  
-  registerUser(user:User):Observable<any>{
-    const url=environment.userAPIUrl  +'/registerUser/'
-    return this.http.post(url,user,  { responseType: 'text'}).pipe(catchError(this.handleError));
+  addAlbum(album:Album):Observable<String>{
+    const url = environment.addAlbumAPI +"/addAlbum";
+    return this.http.post<String>(url,album).pipe(catchError(this.handleError));
   }
-
+  
   private handleError(err: HttpErrorResponse) {
     console.log(err);
     let errMsg:String="";
@@ -41,6 +38,5 @@ export class SignupService {
     }
    return throwError(errMsg);
 }
-
-
+  
 }

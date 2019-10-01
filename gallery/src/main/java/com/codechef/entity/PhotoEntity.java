@@ -2,8 +2,12 @@ package com.codechef.entity;
 
 import java.time.LocalDateTime;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
-
+import javax.persistence.Lob;
+import javax.persistence.Table;
+@Entity
+@Table(name="photoentity")
 public class PhotoEntity {
 
 @Id
@@ -15,6 +19,9 @@ String description;
 LocalDateTime timeOfCreation;
 @Column(name="likescount")
 Integer likesCount;
+@Lob
+@Column(name = "photo", columnDefinition="BLOB")
+private byte[] photo;
 
     public Integer getPhotoId() {
         return photoId;
@@ -46,6 +53,14 @@ Integer likesCount;
 
     public void setLikesCount(Integer likesCount) {
         this.likesCount = likesCount;
+    }
+
+    public byte[] getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(byte[] photo) {
+        this.photo = photo;
     }
 
 }

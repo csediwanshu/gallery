@@ -8,16 +8,25 @@ import { SignupComponent } from './signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AlbumComponent } from './album/album.component';
 
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
+import { PhotoComponent } from './photo/photo.component';
+import { AlbumformComponent } from './albumform/albumform.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
-    AlbumComponent
+    AlbumComponent,
+    HomeComponent,
+    PhotoComponent,
+    AlbumformComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     ReactiveFormsModule
 
   ],

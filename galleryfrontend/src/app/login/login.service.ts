@@ -6,5 +6,5 @@ import { HttpClient } from 'selenium-webdriver/http';
 })
 export class LoginService {
 
-  constructor(private httpService: HttpClient) { }
+  constructor(private http: HttpClient) { }
 }

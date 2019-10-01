@@ -1,34 +1,30 @@
 package com.codechef.api;
 
-import com.codechef.model.User;
+import com.codechef.model.Album;
+import com.codechef.service.UserAlbumService;
 import com.codechef.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
-
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin
 @RestController     
-@RequestMapping("/userAPI")
-public class LoginAPI {
+@RequestMapping("albumAPI")
+public class AlbumApi{
+    
     @Autowired
-    private UserService userService;
-
-
-	@PostMapping("registerUser")
-	public ResponseEntity<String> addCustomer(@RequestBody User user) throws Exception  {
-        userService.addUser(user);   
-		String successMessage = "User added successfully";
+    private UserAlbumService userAlbumService;
+    @PostMapping(value="addAlbum")
+    public ResponseEntity<String> addAlbum(@RequestBody Album album) throws Exception  {
+        userAlbumService.addAlbum(album);   
+		String successMessage = "Album added successfully";
 		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
 		return response;
 	}
-
 }
