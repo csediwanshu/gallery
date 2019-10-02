@@ -36,7 +36,7 @@ public class UserAlbumDaoImpl implements UserAlbumDao{
 
     @Override
     public List<Album> getAlbum(String username){
-        Query query=entityManager.createQuery("select u form user u where u.username=?1");
+        Query query=entityManager.createQuery("select u form userentity u where u.username=?1");
         query.setParameter(1, username);
         UserEntity userEntity = (UserEntity) query.getSingleResult();
 
@@ -51,8 +51,7 @@ public class UserAlbumDaoImpl implements UserAlbumDao{
             album.setDescription(albumEntity.getDescription());
             album.setLikesCount(albumEntity.getLikesCount());
             album.setTimeOfCreation(albumEntity.getTimeOfCreation());
-            album.setCoverPhoto(albumEntity.getCoverPhoto());
-
+           
         }
         return albums;        
 }

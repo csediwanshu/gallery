@@ -19,4 +19,14 @@ public class UserServiceImpl implements UserService{
         return userDao.addUser(user);    
     }
 
+    @Override
+    public User checkLogin(String username ,String password) throws Exception
+    {
+        User user = userDao.checkLogin(username,password);
+        if (user == null) {
+            throw new Exception("NO_USER_FOUND");
+        }
+        return user;
+    }
+
 }

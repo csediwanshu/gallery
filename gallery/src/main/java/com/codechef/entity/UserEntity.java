@@ -28,6 +28,7 @@ public class UserEntity {
 @Lob
 @Column(name = "profilepicture", columnDefinition="LONGBLOB")
 byte[] profilePicture;
+
     @Column(name="password")
     String password;
 

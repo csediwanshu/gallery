@@ -12,7 +12,6 @@ public class User {
     String password;
 
     Set<Album> album;
-    Set<Photo> photo;
     
     public String getUsername() {
         return username;
@@ -72,13 +71,6 @@ public class User {
 		this.album = album;
 	}
 
-    public Set<Photo> getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(Set<Photo> photo) {
-        this.photo = photo;
-    }
 
     public String getProfilePicture() {
         return profilePicture;

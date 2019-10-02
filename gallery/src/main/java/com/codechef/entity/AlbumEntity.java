@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -26,8 +27,9 @@ public class AlbumEntity{
     String albumName;
     @Column(name="description")
     String description;
-    @Column(name="coverphoto")
-    String coverPhoto;
+@Lob
+@Column(name = "profilepicture", columnDefinition="LONGBLOB")
+byte[] profilePicture;
     @Column(name="timeofcreation")
     LocalDateTime timeOfCreation;
     @Column(name="likescount")
@@ -90,13 +92,15 @@ public class AlbumEntity{
         this.photoEntity = photoEntity;
     }
 
-    public String getCoverPhoto() {
-        return coverPhoto;
+    public byte[] getProfilePicture() {
+        return profilePicture;
     }
 
-    public void setCoverPhoto(String coverPhoto) {
-        this.coverPhoto = coverPhoto;
+    public void setProfilePicture(byte[] profilePicture) {
+        this.profilePicture = profilePicture;
     }
+
+   
 
     
 }
