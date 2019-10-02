@@ -8,6 +8,7 @@ Integer photoId;
 String description;
 LocalDateTime timeOfCreation;
 Integer likesCount;
+byte[] photoData;
 
     public Integer getPhotoId() {
         return photoId;
@@ -39,6 +40,14 @@ Integer likesCount;
 
     public void setLikesCount(Integer likesCount) {
         this.likesCount = likesCount;
+    }
+
+    public byte[] getPhotoData() {
+        return photoData;
+    }
+
+    public void setPhotoData(byte[] photoData) {
+        this.photoData = photoData;
     }
 
 

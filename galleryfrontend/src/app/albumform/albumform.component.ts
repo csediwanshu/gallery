@@ -32,9 +32,7 @@ export class AlbumformComponent implements OnInit {
       this.album=this.albumForm.value as Album;
     this.albumFormService.addAlbum(this.album).subscribe((res) => {
       this.successMessage =res;
-    }
-
-    )
+    })
   }
 
 }

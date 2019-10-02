@@ -25,10 +25,19 @@ public class LoginAPI {
 
 	@PostMapping("registerUser")
 	public ResponseEntity<String> addCustomer(@RequestBody User user) throws Exception  {
+		System.out.println();
         userService.addUser(user);   
 		String successMessage = "User added successfully";
 		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
 		return response;
 	}
 
+	@PostMapping("checkUser")
+	public ResponseEntity<?> checkCustomer(@RequestBody String[] credentials) throws Exception  {
+       
+		String successMessage = "User added successfully";
+		User user=null;
+		ResponseEntity<User> response = new ResponseEntity<User>(user, HttpStatus.OK);
+		return response;
+	}
 }

@@ -12,7 +12,8 @@ public class User {
     String password;
 
     Set<Album> album;
-
+    Set<Photo> photo;
+    
     public String getUsername() {
         return username;
     }
@@ -53,13 +54,7 @@ public class User {
         this.gender = gender;
     }
 
-    public String getProfilePicture() {
-        return profilePicture;
-    }
-
-    public void setProfilePicture(String profilePicture) {
-        this.profilePicture = profilePicture;
-    }
+   
 
     public String getPassword() {
         return password;
@@ -76,6 +71,24 @@ public class User {
 	public void setAlbum(Set<Album> album) {
 		this.album = album;
 	}
+
+    public Set<Photo> getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(Set<Photo> photo) {
+        this.photo = photo;
+    }
+
+    public String getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+
+   
 
     
 

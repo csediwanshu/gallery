@@ -2,7 +2,8 @@
  albumId: number;
  albumName:String;
  description:String;
- coverPhoto:File;
+ coverPhoto:String;
  timeOfCreation:Date;
  likesCount: number;
+
 }

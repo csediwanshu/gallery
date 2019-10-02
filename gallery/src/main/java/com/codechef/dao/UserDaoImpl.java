@@ -24,7 +24,7 @@ public class UserDaoImpl implements UserDao {
        userEntity.setLastName(user.getLastName());
        userEntity.setGender(user.getGender());
        userEntity.setPassword(user.getPassword());
-       userEntity.setProfilePicture(user.getProfilePicture());
+       userEntity.setProfilePicture(user.getProfilePicture().getBytes());
 
        entityManager.persist(userEntity);
        return "Suceessfully Added Username: " + user.getUsername();

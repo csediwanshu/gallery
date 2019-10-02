@@ -1,6 +1,6 @@
 package com.codechef.entity;
 
-import java.io.File;
+
 import java.time.LocalDateTime;
 import java.util.Set;
 
@@ -15,7 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="album")
+@Table(name="albumentity")
 public class AlbumEntity{
 
     @Id
@@ -27,7 +27,7 @@ public class AlbumEntity{
     @Column(name="description")
     String description;
     @Column(name="coverphoto")
-    File coverPhoto;
+    String coverPhoto;
     @Column(name="timeofcreation")
     LocalDateTime timeOfCreation;
     @Column(name="likescount")
@@ -80,13 +80,7 @@ public class AlbumEntity{
         this.likesCount = likesCount;
     }
 
-    public File getCoverPhoto() {
-        return coverPhoto;
-    }
-
-    public void setCoverPhoto(File coverPhoto) {
-        this.coverPhoto = coverPhoto;
-    }
+   
 
     public Set<PhotoEntity> getPhotoEntity() {
         return photoEntity;
@@ -94,6 +88,14 @@ public class AlbumEntity{
 
     public void setPhotoEntity(Set<PhotoEntity> photoEntity) {
         this.photoEntity = photoEntity;
+    }
+
+    public String getCoverPhoto() {
+        return coverPhoto;
+    }
+
+    public void setCoverPhoto(String coverPhoto) {
+        this.coverPhoto = coverPhoto;
     }
 
     

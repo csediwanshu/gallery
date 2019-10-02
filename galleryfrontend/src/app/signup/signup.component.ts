@@ -13,6 +13,8 @@ export class SignupComponent implements OnInit {
   user:User;
   registerUserForm: FormGroup;
   selectedFile: File;
+  activateSubmit = false;
+  readerData: string;
   constructor(private formBuilder: FormBuilder,private signupService:SignupService) { }
 
   ngOnInit() {
@@ -31,11 +33,12 @@ export class SignupComponent implements OnInit {
       this.errorMessage=null;
       this.successMessage=null;
       this.user=this.registerUserForm.value as User;
+      this.user.profilePicture=this.readerData;
+      console.log(this.user);
       this.signupService.registerUser(this.user).subscribe(
         message=>{
           this.successMessage = message;
           this.registerUserForm.reset();
-
         }
         ,
         error=>{
@@ -49,11 +52,12 @@ export class SignupComponent implements OnInit {
       var reader = new FileReader();
       reader.readAsDataURL(this.selectedFile);
       reader.onloadend = () =>{
-        console.log(reader.result);
+        this.readerData= reader.result.toString();
+        this.activateSubmit= true;
       }
-      const fd = new FormData();
-      fd.append('image', this.selectedFile, this.selectedFile.name);
-       console.log(fd);
+      // const fd = new FormData();
+      // fd.append('image', this.selectedFile, this.selectedFile.name);
+      //  console.log(fd);
     }
 
 

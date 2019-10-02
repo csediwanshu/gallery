@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Album } from '../shared/model/Album';
+import { AlbumService } from './album.service';
+import { User } from '../Shared/model/User';
 
 @Component({
   selector: 'app-album',
@@ -8,10 +11,20 @@ import { Component, OnInit } from '@angular/core';
 export class AlbumComponent implements OnInit {
 
   editalbum:boolean=false;
-  constructor() { }
+  albums:Album[];
+  user:User;
+  constructor(private albumService:AlbumService) { }
+  
 
   ngOnInit() {
-    sessionStorage.setItem('user', JSON.stringify(null))
+    this.user=JSON.parse(sessionStorage.getItem('user'));
+      
+    this.albumService.getAlbum(this.user.username).subscribe(
+      res=>{
+        this.albums=res;
+      }
+    )
+    
   }
 
 }

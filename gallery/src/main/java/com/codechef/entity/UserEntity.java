@@ -1,15 +1,17 @@
 package com.codechef.entity;
+import java.io.File;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="user")
+@Table(name="userentity")
 public class UserEntity {
     @Id
     @Column(name="username")
@@ -22,14 +24,17 @@ public class UserEntity {
     String email;
     @Column(name="gender")
     String gender;
-    @Column(name="profilepicture")
-    String profilePicture;
+
+@Lob
+@Column(name = "profilepicture", columnDefinition="LONGBLOB")
+byte[] profilePicture;
     @Column(name="password")
     String password;
 
     @OneToMany(cascade=CascadeType.ALL)
     @JoinColumn(name="username")
     Set<AlbumEntity> albumEntity;
+
     
 
     public String getUsername() {
@@ -72,13 +77,7 @@ public class UserEntity {
         this.gender = gender;
     }
 
-    public String getProfilePicture() {
-        return profilePicture;
-    }
-
-    public void setProfilePicture(String profilePicture) {
-        this.profilePicture = profilePicture;
-    }
+   
 
     public String getPassword() {
         return password;
@@ -87,6 +86,26 @@ public class UserEntity {
     public void setPassword(String password) {
         this.password = password;
     }
+
+   
+
+    public Set<AlbumEntity> getAlbumEntity() {
+        return albumEntity;
+    }
+
+    public void setAlbumEntity(Set<AlbumEntity> albumEntity) {
+        this.albumEntity = albumEntity;
+    }
+
+    public byte[] getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(byte[] profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+
+    
 
     
 

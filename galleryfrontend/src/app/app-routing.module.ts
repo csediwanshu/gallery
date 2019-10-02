@@ -16,9 +16,11 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent, children: [
     {path: 'album',component: AlbumComponent},
     {path: 'photo',component: PhotoComponent},
+    {path: 'albumform',component:AlbumformComponent}
+ 
   ]},
   
-  {path: 'albumform',component:AlbumformComponent}
+  
   
 ];
 

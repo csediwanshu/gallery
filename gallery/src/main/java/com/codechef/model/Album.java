@@ -8,10 +8,11 @@ public class Album{
 Integer albumId;
 String albumName;
 String description;
-File coverPhoto;
+String coverPhoto;
 LocalDateTime timeOfCreation;
 Integer likesCount;
 Set<Photo> photo;
+
     public Integer getAlbumId() {
         return albumId;
     }
@@ -61,13 +62,15 @@ Set<Photo> photo;
         this.photo = photo;
     }
 
-    public File getCoverPhoto() {
+    public String getCoverPhoto() {
         return coverPhoto;
     }
 
-    public void setCoverPhoto(File coverPhoto) {
+    public void setCoverPhoto(String coverPhoto) {
         this.coverPhoto = coverPhoto;
     }
+
+   
 
 
 

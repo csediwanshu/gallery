@@ -1,14 +1,22 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from 'selenium-webdriver/http';
-import { HttpErrorResponse } from '@angular/common/http';
-import { throwError } from 'rxjs';
+
+import { HttpErrorResponse, HttpClientModule, HttpClient } from '@angular/common/http';
+import { throwError, Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { Album } from '../shared/model/Album';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AlbumService {
 
-  constructor(private httpService: HttpClient) { }
+  constructor(private http: HttpClient) { }
+
+  getAlbum(username:String):Observable<Album[]>{
+    const url = environment.addAlbumAPI +"/getAlbum";
+    return this.http.post<Album[]>(url,username).pipe(catchError(this.handleError));
+  }
 
   
   private handleError(err: HttpErrorResponse) {

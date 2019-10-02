@@ -4,6 +4,6 @@ export class User{
     lastName : String;
     email:String;
     gender:String;
-    profilePicture:File;
+    profilePicture:String;
     password:String;
 }

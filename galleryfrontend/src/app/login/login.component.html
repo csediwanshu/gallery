@@ -2,15 +2,17 @@
 <br><br>
 
 <div class="form-group">
-    <label> Username </label>
-    <input type="text" class="form-control">
+    <label > Username </label>
+    <input type="text" #username class="form-control">
    </div>
 <div class="form-group">
     <label>Password</label>  
-    <input type="password" class="form-control">
+    <input type="password" #password class="form-control">
    </div>
-<button type="submit" class="btn btn-primary"  [routerLink]="['/home']">Login</button>
-   
+<button type="submit" class="btn btn-primary" 
+ (click)="checkin(username.value,password.value)"> Login </button>
+ <!-- <span *ngIf="successMessage" [routerLink]="['/home']"> </span> -->
+
 
    <button type="submit" class="btn btn-success"  [routerLink]="['/signup']">
     Signup</button>

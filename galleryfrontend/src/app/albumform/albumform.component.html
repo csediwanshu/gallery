@@ -9,7 +9,12 @@
             <div class="form-group">
                 <label>Description</label>
                 <textarea cols="30" rows="10" class="form-control" formControlName="description"></textarea>
-                <p *ngIf="albumForm.controls.description.errors" class="alert alert-danger">This field is required!</p>
+            </div>
+
+            <div class="form-group">
+                <label>Cover Photo</label>
+                <input type="file" class="form-control">
+                        <!-- (change)="onUpload($event)" -->
             </div>
           
           <button type="submit">Submit</button>
