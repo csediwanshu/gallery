@@ -52,6 +52,23 @@ public class PhotoApi{
         }
         catch(Exception e)
         {
+            
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
+        }
+    }
+
+    @PostMapping(value="/addLikes")
+    ResponseEntity<?> addLikes(@RequestBody Photo photo) throws Exception{
+
+        try{
+            
+            String message=userPhotoService.addLikes(photo);;
+            ResponseEntity<String> response = new ResponseEntity<String>(message, HttpStatus.OK);
+            return response;
+
+        }
+        catch(Exception e)
+        {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
         }
     }

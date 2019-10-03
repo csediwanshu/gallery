@@ -9,7 +9,7 @@ String description;
 LocalDateTime timeOfCreation;
 Integer likesCount;
 String photoUser; 
-String photoAlbumId;
+Integer photoAlbumId;
 String photoData;
 
     public Integer getPhotoId() {
@@ -60,11 +60,11 @@ String photoData;
         this.photoData = photoData;
     }
 
-    public String getPhotoAlbumId() {
+    public Integer getPhotoAlbumId() {
         return photoAlbumId;
     }
 
-    public void setPhotoAlbumId(String photoAlbumId) {
+    public void setPhotoAlbumId(Integer photoAlbumId) {
         this.photoAlbumId = photoAlbumId;
     }
 

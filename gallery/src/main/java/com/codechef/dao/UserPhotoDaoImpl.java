@@ -2,6 +2,7 @@ package com.codechef.dao;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -30,6 +31,7 @@ public class UserPhotoDaoImpl implements UserPhotoDao{
         
         Set<PhotoEntity> photos=albumEntity.getPhotoEntity();
         List<Photo> photos2=new ArrayList<Photo>();
+        if(photos2!=null){
          for(PhotoEntity p:photos){
             Photo photo= new Photo();
             photo.setDescription(p.getDescription());
@@ -39,18 +41,37 @@ public class UserPhotoDaoImpl implements UserPhotoDao{
             photo.setTimeOfCreation(p.getTimeOfCreation());
            photos2.add(photo);
          }
+        }
         return photos2;
 
     }
 
     @Override
     public String addPhoto(Photo photo) throws Exception{
+        AlbumEntity albumEntity=entityManager.find(AlbumEntity.class,photo.getPhotoAlbumId());
+        System.out.println("fwwwwwwwwwwwwwww"+albumEntity.getAlbumName());
         PhotoEntity photoEntity=new PhotoEntity();
         photoEntity.setDescription(photo.getDescription());
         photoEntity.setLikesCount(0);
         photoEntity.setPhotoData(photo.getPhotoData().getBytes());
         photoEntity.setTimeOfCreation(LocalDateTime.now());
-        entityManager.persist(photoEntity);
+       if(albumEntity.getPhotoEntity()!=null){
+           albumEntity.getPhotoEntity().add(photoEntity);
+       }
+       else {
+           Set<PhotoEntity> entities=new HashSet<PhotoEntity>();
+           entities.add(photoEntity);
+           albumEntity.setPhotoEntity(entities);
+       }
+       System.out.println("dhuefbvueuybebnefadineadefjnefdi"+photoEntity.getPhotoId());
+        entityManager.persist(albumEntity);
+        return "Succesfully Added Image" + photoEntity.getPhotoId();
+    }
+    @Override
+    public String addLikes(Photo photo) throws Exception{
+       PhotoEntity photoEntity=entityManager.find(PhotoEntity.class,photo.getPhotoId());
+       photoEntity.setLikesCount(photo.getLikesCount());
+       entityManager.persist(photoEntity);
         return "Succesfully Added Image" + photoEntity.getPhotoId();
     }
 

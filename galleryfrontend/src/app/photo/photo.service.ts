@@ -17,6 +17,16 @@ export class PhotoService {
     return this.http.post<Photo[]>(url,albumId).pipe(catchError(this.handleError));
   }
 
+  addPhoto(photo:Photo):Observable<any>{
+    const url = environment.photoAPI+'/addPhoto'
+    return this.http.post(url,photo,{responseType:'text'}).pipe(catchError(this.handleError));
+
+  }
+
+  addLikes(photo:Photo):Observable<any>{
+    const url = environment.photoAPI+'/addLikes'
+    return this.http.post(url,photo,{responseType:'text'}).pipe(catchError(this.handleError));
+  }
   private handleError(err: HttpErrorResponse) {
     console.log(err);
     let errMsg:String="";

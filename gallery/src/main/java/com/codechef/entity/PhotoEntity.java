@@ -15,7 +15,7 @@ public class PhotoEntity {
 
 @Id
 @Column(name="photoid")
-@GeneratedValue(strategy = GenerationType.IDENTITY)
+@GeneratedValue(strategy = GenerationType.AUTO)
 Integer photoId;
 @Column(name="description")
 String description;
@@ -26,11 +26,11 @@ Integer likesCount;
 @Column(name="photouser")
 String photoUser;
 @Column(name="photoalbum")
-String photoAlbumId;
+Integer photoAlbumId;
 
 
 @Lob
-@Column(name = "photodata", columnDefinition="BLOB")
+@Column(name = "photodata", columnDefinition="LONGBLOB")
  byte[] photoData;
 
 
@@ -82,13 +82,15 @@ String photoAlbumId;
 		this.photoUser = photoUser;
 	}
 
-    public String getPhotoAlbumId() {
+    public Integer getPhotoAlbumId() {
         return photoAlbumId;
     }
 
-    public void setPhotoAlbumId(String photoAlbumId) {
+    public void setPhotoAlbumId(Integer photoAlbumId) {
         this.photoAlbumId = photoAlbumId;
     }
+
+    
 
     
     

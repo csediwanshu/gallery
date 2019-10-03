@@ -10,4 +10,5 @@ public interface UserPhotoDao{
     public List<Photo> getImages(Integer albumId) throws Exception;
 
     public String addPhoto(Photo photo) throws Exception;
+    public String addLikes(Photo photo) throws Exception;
 }

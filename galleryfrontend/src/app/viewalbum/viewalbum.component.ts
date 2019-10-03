@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Album } from '../shared/model/Album';
 import { ViewalbumService } from './viewalbum.service';
 import { User } from '../Shared/model/User';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-viewalbum',
@@ -17,13 +17,16 @@ export class ViewalbumComponent implements OnInit {
  
   user:User;
   albums:Album[];
-  constructor(private viewAlbumService:ViewalbumService,private router:Router) { }
+  constructor(private viewAlbumService:ViewalbumService,private router:Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.user=JSON.parse(sessionStorage.getItem('user'));
     this.viewAlbumService.getAlbum(this.user.username).subscribe(
       (res)=>{this.albums=res ,console.log(res)}
     )
+    // this.activatedRoute.params.subscribe((params) => {
+    //   console.log(params['id'])
+    // })
   }
 
   addLikes(album:Album){
@@ -35,7 +38,7 @@ export class ViewalbumComponent implements OnInit {
     )
   }
   intoAlbum(album:Album){
-    sessionStorage.setItem('album',JSON.stringify('album'));
+    sessionStorage.setItem('album',JSON.stringify(album));
     this.router.navigate(['/home/photo']);
 
   }

@@ -19,11 +19,12 @@ const routes: Routes = [
       {path: 'albumform',component:AlbumformComponent}
     ]},
     {path: 'photo',component: PhotoComponent},
-    {path: 'viewalbum',component: ViewalbumComponent},
-    
+    {path: 'viewalbum',component: ViewalbumComponent,
+  
+  }, 
  
   ]},
-  
+  {path: 'showAlbum/:id', component: ViewalbumComponent}
   
   
 ];

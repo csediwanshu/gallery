@@ -31,4 +31,10 @@ public class UserPhotoServiceImpl implements UserPhotoService{
         return userPhotoDao.addPhoto(photo);
     }
 
+    @Override
+    public String addLikes(Photo photo) throws Exception{
+
+        return userPhotoDao.addLikes(photo);
+    }
+
 }

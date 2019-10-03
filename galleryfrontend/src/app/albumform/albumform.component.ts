@@ -52,6 +52,7 @@ user:User;
        this.album.albumUser=this.user.username;
 
        this.albumFormService.addAlbum(this.album).subscribe(
+         
          (res) => {
       this.successMessage =res;
       this.router.navigate(['/home']);

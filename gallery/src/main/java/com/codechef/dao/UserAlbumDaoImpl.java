@@ -38,7 +38,7 @@ public class UserAlbumDaoImpl implements UserAlbumDao{
         // System.out.println("djkbkjdkjbdnwdkwkdkjwdnkjwnddwjknwdjkdwdw"+username);
         UserEntity userEntity = entityManager.find(UserEntity.class, username);
         Set<AlbumEntity> albumEntities=userEntity.getAlbumEntity();
-        System.out.println("djkbkjdkjbdnwdkwkdkjwdnkjwnddwjknwdjkdwdw"+albumEntities.size());
+        // System.out.println("djkbkjdkjbdnwdkwkdkjwdnkjwnddwjknwdjkdwdw"+albumEntities.size());
 
         List<Album> albums=new ArrayList<>();
         for(AlbumEntity albumEntity:albumEntities)
@@ -53,7 +53,7 @@ public class UserAlbumDaoImpl implements UserAlbumDao{
             albums.add(album);
            
         }
-        System.out.println("sbhjbhsbhsjhsbhjsbjbsbsbssjhjshbsbjsbjbsjbsjbs"+albums.size());
+        // System.out.println("sbhjbhsbhsjhsbhjsbjbsbsbssjhjshbsbjsbjbsjbsjbs"+albums.size());
         return albums;        
 }
 
