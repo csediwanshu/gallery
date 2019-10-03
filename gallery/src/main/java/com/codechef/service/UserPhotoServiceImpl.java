@@ -6,7 +6,6 @@ import javax.transaction.Transactional;
 
 import com.codechef.dao.UserPhotoDao;
 import com.codechef.model.Photo;
-import com.codechef.model.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,6 +34,12 @@ public class UserPhotoServiceImpl implements UserPhotoService{
     public String addLikes(Photo photo) throws Exception{
 
         return userPhotoDao.addLikes(photo);
+    }
+
+    @Override
+    public String removePhoto(Photo photo) throws Exception{
+
+        return userPhotoDao.removePhoto(photo);
     }
 
 }

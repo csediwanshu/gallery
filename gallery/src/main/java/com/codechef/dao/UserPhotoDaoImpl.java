@@ -8,13 +8,11 @@ import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+
 
 import com.codechef.entity.AlbumEntity;
 import com.codechef.entity.PhotoEntity;
-import com.codechef.entity.UserEntity;
 import com.codechef.model.Photo;
-import com.codechef.model.User;
 
 
 import org.springframework.stereotype.Repository;
@@ -73,6 +71,13 @@ public class UserPhotoDaoImpl implements UserPhotoDao{
        photoEntity.setLikesCount(photo.getLikesCount());
        entityManager.persist(photoEntity);
         return "Succesfully Added Image" + photoEntity.getPhotoId();
+    }
+
+    @Override
+    public String removePhoto(Photo photo) throws Exception{
+       PhotoEntity photoEntity=entityManager.find(PhotoEntity.class,photo.getPhotoId());
+       entityManager.remove(photoEntity);
+        return "Succesfully Remove Image with ImageId" + photoEntity.getPhotoId();
     }
 
 

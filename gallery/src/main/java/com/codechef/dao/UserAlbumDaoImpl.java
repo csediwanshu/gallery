@@ -67,4 +67,11 @@ public String addLikes(Album album){
     return "Suceessfully Increased Likes: " + albumEntity.getAlbumId();
 }
 
+
+@Override
+public String removeAlbum(Album album){
+    AlbumEntity albumEntity = entityManager.find(AlbumEntity.class,album.getAlbumId());
+    entityManager.remove(albumEntity);
+    return "Suceessfully Removed Album with Album Name: " + albumEntity.getAlbumName();
+}
 }

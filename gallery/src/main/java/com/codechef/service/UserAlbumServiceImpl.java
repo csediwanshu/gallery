@@ -31,4 +31,11 @@ return userAlbumDao.getAlbum(username);
         return userAlbumDao.addLikes(album);
     }
 
+    @Override
+    public String removeAlbum(Album album){
+        return userAlbumDao.removeAlbum(album);
+    }
+
+
+
 }

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.codechef.model.Photo;
-import com.codechef.model.User;
 import com.codechef.service.UserPhotoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,10 +32,8 @@ public class PhotoApi{
             photoList=userPhotoService.getImages(albumId);
             ResponseEntity<List<Photo>> response = new ResponseEntity<List<Photo>>(photoList, HttpStatus.OK);
             return response;
-
         }
-        catch(Exception e)
-        {
+        catch(Exception e){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
         }
     }
@@ -48,11 +45,8 @@ public class PhotoApi{
             String message=userPhotoService.addPhoto(photo);
             ResponseEntity<String> response = new ResponseEntity<String>(message, HttpStatus.OK);
             return response;
-
         }
-        catch(Exception e)
-        {
-            
+        catch(Exception e){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
         }
     }
@@ -61,14 +55,24 @@ public class PhotoApi{
     ResponseEntity<?> addLikes(@RequestBody Photo photo) throws Exception{
 
         try{
-            
             String message=userPhotoService.addLikes(photo);;
             ResponseEntity<String> response = new ResponseEntity<String>(message, HttpStatus.OK);
             return response;
-
         }
-        catch(Exception e)
-        {
+        catch(Exception e){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
+        }
+    }
+
+    @PostMapping(value="/removePhoto")
+    ResponseEntity<?> removePhoto(@RequestBody Photo photo) throws Exception{
+
+        try{
+            String message=userPhotoService.removePhoto(photo);
+            ResponseEntity<String> response = new ResponseEntity<String>(message, HttpStatus.OK);
+            return response;
+        }
+        catch(Exception e){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
         }
     }

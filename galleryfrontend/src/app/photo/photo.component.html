@@ -1,6 +1,6 @@
 <button type="button" (click)="photoFormBool=false" >Add Photos</button>
 <div class="card-group" *ngIf="photoFormBool">
-        <div class="card" *ngFor="let p of photos " >
+        <div class="card" *ngFor="let p of photos" >
         
           <img [src]="album.coverPhoto" class="card-img-top" alt="">
           <div class="card-body">

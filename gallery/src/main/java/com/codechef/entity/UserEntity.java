@@ -1,5 +1,4 @@
 package com.codechef.entity;
-import java.io.File;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

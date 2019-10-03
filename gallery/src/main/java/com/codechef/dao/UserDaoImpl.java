@@ -1,13 +1,9 @@
 package com.codechef.dao;
 
-import java.util.HashSet;
-import java.util.Set;
+
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-
-import com.codechef.entity.AlbumEntity;
 import com.codechef.entity.UserEntity;
 import com.codechef.model.User;
 import org.springframework.stereotype.Repository;

@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,25 +25,25 @@ public class LoginAPI {
 
 	@PostMapping("registerUser")
 	public ResponseEntity<String> addCustomer(@RequestBody User user) throws Exception  {
-		System.out.println();
+		try{
         userService.addUser(user);   
 		String successMessage = "User added successfully";
 		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
 		return response;
+	}
+		catch(Exception e){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
+        }
 	}
 
 	@PostMapping("checkUser")
 	public ResponseEntity<?> checkCustomer(@RequestBody String[] credentials)  {
        try {
 		User user=userService.checkLogin(credentials[0],credentials[1]);
-		// System.out.println("!111");
-		// System.out.println(credentials[1]);
-		// System.out.println("12222");
-		// System.out.println(credentials[0]);
-		// System.out.println("2222222222");
 		ResponseEntity<User> response = new ResponseEntity<User>(user, HttpStatus.OK);
 		return response;
-	   } catch(Exception e) {
+	   } 
+	   catch(Exception e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 	   }
 		
