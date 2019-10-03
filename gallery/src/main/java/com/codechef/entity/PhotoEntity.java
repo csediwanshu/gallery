@@ -27,6 +27,8 @@ Integer likesCount;
 String photoUser;
 @Column(name="photoalbum")
 Integer photoAlbumId;
+@Column(name="phototype")
+Integer photoType;
 
 
 @Lob
@@ -88,6 +90,14 @@ Integer photoAlbumId;
 
     public void setPhotoAlbumId(Integer photoAlbumId) {
         this.photoAlbumId = photoAlbumId;
+    }
+
+    public Integer getPhotoType() {
+        return photoType;
+    }
+
+    public void setPhotoType(Integer photoType) {
+        this.photoType = photoType;
     }
 
     

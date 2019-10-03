@@ -11,6 +11,7 @@ String coverPhoto;
 LocalDateTime timeOfCreation;
 Integer likesCount;
 String albumUser;
+Integer albumType;
 Set<Photo> photo;
 
     public Integer getAlbumId() {
@@ -76,6 +77,14 @@ Set<Photo> photo;
 
     public void setAlbumUser(String albumUser) {
         this.albumUser = albumUser;
+    }
+
+    public Integer getAlbumType() {
+        return albumType;
+    }
+
+    public void setAlbumType(Integer albumType) {
+        this.albumType = albumType;
     }
 
    

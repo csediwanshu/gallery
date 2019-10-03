@@ -27,6 +27,13 @@ export class PhotoService {
     const url = environment.photoAPI+'/addLikes'
     return this.http.post(url,photo,{responseType:'text'}).pipe(catchError(this.handleError));
   }
+
+  removePhoto(photo:Photo):Observable<any>{
+    const url = environment.photoAPI+'/removePhoto'
+    return this.http.post(url,photo,{responseType:'text'}).pipe(catchError(this.handleError));
+  }
+
+
   private handleError(err: HttpErrorResponse) {
     console.log(err);
     let errMsg:String="";

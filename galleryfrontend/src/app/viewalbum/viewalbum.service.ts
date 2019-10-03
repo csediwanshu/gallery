@@ -13,14 +13,17 @@ export class ViewalbumService {
   constructor(private http:HttpClient) { }
 
   getAlbum(username:String):Observable<Album[]>{
-
     const url=environment.addAlbumAPI  +'/getAlbum/';
     return this.http.post<Album[]>(url,username).pipe(catchError(this.handleError));
- 
   }
   
   addLikes(album:Album):Observable<any>{
     const url=environment.addAlbumAPI  +'/addLikes/';
+    return this.http.post(url,album,{ responseType: 'text'}).pipe(catchError(this.handleError));
+  }
+
+  removeAlbum(album:Album):Observable<any>{
+    const url=environment.addAlbumAPI  +'/removeAlbum/';
     return this.http.post(url,album,{ responseType: 'text'}).pipe(catchError(this.handleError));
   }
 

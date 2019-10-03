@@ -29,6 +29,8 @@ public class AlbumEntity{
     String description;
     @Column(name="albumuser")
     String albumUser;
+    @Column(name="albumtype")
+    Integer albumType;
 @Lob
 @Column(name = "coverpicture", columnDefinition="LONGBLOB")
 byte[] coverPhoto;
@@ -110,6 +112,14 @@ byte[] coverPhoto;
 
     public void setCoverPhoto(byte[] coverPhoto) {
         this.coverPhoto = coverPhoto;
+    }
+
+    public Integer getAlbumType() {
+        return albumType;
+    }
+
+    public void setAlbumType(Integer albumType) {
+        this.albumType = albumType;
     }
 
    

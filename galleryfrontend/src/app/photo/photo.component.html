@@ -6,6 +6,7 @@
           <div class="card-body">
             <h5 class="card-title">Photo Description</h5>
             <p class="card-text">{{p.description}}</p>
+            <input type="button" value="Remove" (click)="removePhoto(p)"> 
           </div>
           <div class="card-footer">
             <small class="text-muted">DateTime: {{p.timeOfCreation}} </small><br>

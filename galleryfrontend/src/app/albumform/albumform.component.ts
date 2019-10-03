@@ -55,7 +55,7 @@ user:User;
          
          (res) => {
       this.successMessage =res;
-      this.router.navigate(['/home']);
+      this.router.navigate(['/home/viewalbum']);
     })
   }
 

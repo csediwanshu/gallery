@@ -40,7 +40,13 @@ export class ViewalbumComponent implements OnInit {
   intoAlbum(album:Album){
     sessionStorage.setItem('album',JSON.stringify(album));
     this.router.navigate(['/home/photo']);
-
+  }
+  removeAlbum(album:Album){
+    this.errorMessage=null;
+    this.successMessage=null;
+    this.viewAlbumService.removeAlbum(album).subscribe(
+      (res)=>{this.successMessage=res}
+    )
   }
 
 }

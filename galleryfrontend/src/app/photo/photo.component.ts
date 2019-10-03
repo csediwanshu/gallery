@@ -20,9 +20,8 @@ export class PhotoComponent implements OnInit {
 
   errorMessage: String;
   successMessage: String;
-
-selectedFile:File;
-readerData: string;
+  selectedFile:File;
+  readerData: string;
   photoForm: FormGroup;
   activateSubmit:boolean=false;
   photo:Photo;
@@ -31,17 +30,20 @@ readerData: string;
   ngOnInit() {
     this.album=JSON.parse(sessionStorage.getItem('album'));
    this.user=JSON.parse(sessionStorage.getItem('user'));
-  //  console.log(this.album);
-  //  console.log(this.user);
-   
    this.photoForm=this.formBuilder.group({
     description:[this.album.description,Validators.required]
   })
-    this.photoService.getPhotos(this.album.albumId).subscribe(
-      (res)=>{
-        this.photos=res;
-      }
-    )}
+  this.fetchPhotos();
+    }
+
+    fetchPhotos()
+    {
+      this.photoService.getPhotos(this.album.albumId).subscribe(
+        (res)=>{
+          this.photos=res;
+        }
+      )
+    }
 
     onUpload(event) {
       this.selectedFile = <File> event.target.files[0];
@@ -57,19 +59,18 @@ readerData: string;
   
     uploadPhoto()
     {
-      this.errorMessage=null;
+        this.errorMessage=null;
         this.successMessage=null;
         this.photo=this.photoForm.value as Photo;
         this.photo.photoData=this.readerData;
         this.album=JSON.parse(sessionStorage.getItem('album'));
          this.photo.photoAlbumId=this.album.albumId;
-        //  console.log(this.album.albumId );
-        //  console.log(this.photo);
          this.photoService.addPhoto(this.photo).subscribe(
            (res) => {
         this.successMessage =res;
-        // this.router.navigate(['/home']);
+        this.fetchPhotos();
       })
+
       this.photoFormBool=true;
     }
 
@@ -78,6 +79,14 @@ readerData: string;
       this.successMessage=null;
    photo1.likesCount=photo1.likesCount+ 1;
       this.photoService.addLikes(photo1).subscribe(
+        res=>{this.successMessage=res}
+      )
+    }
+
+    removePhoto(photo:Photo){
+      this.errorMessage=null;
+      this.successMessage=null;
+      this.photoService.removePhoto(photo).subscribe(
         res=>{this.successMessage=res}
       )
     }

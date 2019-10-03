@@ -11,6 +11,7 @@ Integer likesCount;
 String photoUser; 
 Integer photoAlbumId;
 String photoData;
+Integer photoType;
 
     public Integer getPhotoId() {
         return photoId;
@@ -67,6 +68,14 @@ String photoData;
     public void setPhotoAlbumId(Integer photoAlbumId) {
         this.photoAlbumId = photoAlbumId;
     }
+
+	public Integer getPhotoType() {
+		return photoType;
+	}
+
+	public void setPhotoType(Integer photoType) {
+		this.photoType = photoType;
+	}
 
   
   
