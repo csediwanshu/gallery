@@ -6,6 +6,7 @@ import { AlbumComponent } from './album/album.component';
 import { HomeComponent } from './home/home.component';
 import { PhotoComponent } from './photo/photo.component';
 import { AlbumformComponent } from './albumform/albumform.component';
+import { ViewalbumComponent } from './viewalbum/viewalbum.component';
 
 
 const routes: Routes = [
@@ -14,9 +15,12 @@ const routes: Routes = [
   {path: 'login',component: LoginComponent},
   
   {path: 'home', component: HomeComponent, children: [
-    {path: 'album',component: AlbumComponent},
+    {path: 'album',component: AlbumComponent,children:[
+      {path: 'albumform',component:AlbumformComponent}
+    ]},
     {path: 'photo',component: PhotoComponent},
-    {path: 'albumform',component:AlbumformComponent}
+    {path: 'viewalbum',component: ViewalbumComponent},
+    
  
   ]},
   

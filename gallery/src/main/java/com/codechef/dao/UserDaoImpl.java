@@ -1,9 +1,13 @@
 package com.codechef.dao;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import com.codechef.entity.AlbumEntity;
 import com.codechef.entity.UserEntity;
 import com.codechef.model.User;
 import org.springframework.stereotype.Repository;
@@ -25,6 +29,11 @@ public class UserDaoImpl implements UserDao {
        userEntity.setPassword(user.getPassword());
        userEntity.setProfilePicture(user.getProfilePicture().getBytes());
 
+    //    AlbumEntity albumEntity = new AlbumEntity();
+    //    albumEntity.setAlbumName("unnamedAlbum");
+    //    Set<AlbumEntity> albumEntities = new HashSet<AlbumEntity>();
+    //    albumEntities.add(albumEntity);
+    //    userEntity.setAlbumEntity(albumEntities);
        entityManager.persist(userEntity);
        return "Suceessfully Added Username: " + user.getUsername();
     }
@@ -32,8 +41,6 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User checkLogin(String username ,String password) throws Exception
     {
-        // Query query = entityManager.createQuery("select u from UserEntity u where u.username=?1");
-        // query.setParameter(1,username);
 
         UserEntity userEntity = entityManager.find(UserEntity.class, username);
         // System.out.println(userEntity.getUsername());

@@ -27,9 +27,11 @@ public class AlbumEntity{
     String albumName;
     @Column(name="description")
     String description;
+    @Column(name="albumuser")
+    String albumUser;
 @Lob
-@Column(name = "profilepicture", columnDefinition="LONGBLOB")
-byte[] profilePicture;
+@Column(name = "coverpicture", columnDefinition="LONGBLOB")
+byte[] coverPhoto;
     @Column(name="timeofcreation")
     LocalDateTime timeOfCreation;
     @Column(name="likescount")
@@ -92,12 +94,22 @@ byte[] profilePicture;
         this.photoEntity = photoEntity;
     }
 
-    public byte[] getProfilePicture() {
-        return profilePicture;
+   
+
+    public String getAlbumUser() {
+        return albumUser;
     }
 
-    public void setProfilePicture(byte[] profilePicture) {
-        this.profilePicture = profilePicture;
+    public void setAlbumUser(String albumUser) {
+        this.albumUser = albumUser;
+    }
+
+    public byte[] getCoverPhoto() {
+        return coverPhoto;
+    }
+
+    public void setCoverPhoto(byte[] coverPhoto) {
+        this.coverPhoto = coverPhoto;
     }
 
    

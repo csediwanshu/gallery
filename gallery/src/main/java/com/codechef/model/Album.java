@@ -10,6 +10,7 @@ String description;
 String coverPhoto;
 LocalDateTime timeOfCreation;
 Integer likesCount;
+String albumUser;
 Set<Photo> photo;
 
     public Integer getAlbumId() {
@@ -67,6 +68,14 @@ Set<Photo> photo;
 
     public void setCoverPhoto(String coverPhoto) {
         this.coverPhoto = coverPhoto;
+    }
+
+    public String getAlbumUser() {
+        return albumUser;
+    }
+
+    public void setAlbumUser(String albumUser) {
+        this.albumUser = albumUser;
     }
 
    

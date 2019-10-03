@@ -26,4 +26,9 @@ public class UserAlbumServiceImpl implements UserAlbumService{
 return userAlbumDao.getAlbum(username);
     }
 
+    @Override
+    public String addLikes(Album album){
+        return userAlbumDao.addLikes(album);
+    }
+
 }

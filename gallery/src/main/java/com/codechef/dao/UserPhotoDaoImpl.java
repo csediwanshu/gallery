@@ -51,7 +51,7 @@ public class UserPhotoDaoImpl implements UserPhotoDao{
         PhotoEntity photoEntity=new PhotoEntity();
         photoEntity.setDescription(photo.getDescription());
         photoEntity.setLikesCount(photo.getLikesCount());
-        photoEntity.setPhotoData(photo.getPhotoData());
+       
         photoEntity.setTimeOfCreation(LocalDateTime.now());
         entityManager.persist(photoEntity);
         return "Succesfully Added Image" + photoEntity.getPhotoId();

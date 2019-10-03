@@ -23,6 +23,9 @@ String description;
 LocalDateTime timeOfCreation;
 @Column(name="likescount")
 Integer likesCount;
+@Column(name="photouser")
+String photoUser;
+
 
 @Lob
 @Column(name = "photodata", columnDefinition="BLOB")
@@ -68,6 +71,14 @@ Integer likesCount;
     public void setPhotoData(byte[] photoData) {
         this.photoData = photoData;
     }
+
+	public String getPhotoUser() {
+		return photoUser;
+	}
+
+	public void setPhotoUser(String photoUser) {
+		this.photoUser = photoUser;
+	}
 
     
 

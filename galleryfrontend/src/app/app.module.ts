@@ -12,6 +12,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { PhotoComponent } from './photo/photo.component';
 import { AlbumformComponent } from './albumform/albumform.component';
+import { ViewalbumComponent } from './viewalbum/viewalbum.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AlbumformComponent } from './albumform/albumform.component';
     AlbumComponent,
     HomeComponent,
     PhotoComponent,
-    AlbumformComponent
+    AlbumformComponent,
+    ViewalbumComponent
   ],
   imports: [
     BrowserModule,

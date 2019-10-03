@@ -5,5 +5,6 @@
  coverPhoto:String;
  timeOfCreation:Date;
  likesCount: number;
+ albumUser:String;
 
 }

@@ -1,6 +1,10 @@
 
-<button type="button" (click)="editalbum=true" [routerLink]="['/home','albumform']">Add Album</button>
+<button type="button" (click)="editalbum=true" [routerLink]="['/home','album','albumform']">Add Album</button>
 
+<div class="container">
+        <router-outlet></router-outlet>
+    </div>
+  
 <!-- 
 <div class="card-deck" *ngFor="let image of images">
         <div class="card bg-primary">

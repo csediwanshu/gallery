@@ -5,4 +5,5 @@ export class Photo{
     timeOfCreation:Date;
     likesCount:number;
     photoData:String;
+    photoUser:String
 }

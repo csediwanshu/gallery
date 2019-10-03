@@ -12,10 +12,9 @@
             </div>
 
             <div class="form-group">
-                <label>Cover Photo</label>
-                <input type="file" class="form-control">
-                        <!-- (change)="onUpload($event)" -->
-            </div>
+                        <label>Cover Photo</label>
+                        <input type="file" class="form-control" (change)="onUpload($event)">
+                      </div>
           
           <button type="submit">Submit</button>
         </form>

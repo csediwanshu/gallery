@@ -8,4 +8,6 @@ public interface UserAlbumDao{
 
 public String addAlbum(Album album);
 public List<Album> getAlbum(String username);
+public String addLikes(Album album);
+
 }

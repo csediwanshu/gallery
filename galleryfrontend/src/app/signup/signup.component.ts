@@ -50,11 +50,14 @@ export class SignupComponent implements OnInit {
     onUpload(event) {
       this.selectedFile = <File>event.target.files[0];
       var reader = new FileReader();
-      reader.readAsDataURL(this.selectedFile);
-      reader.onloadend = () =>{
-        this.readerData= reader.result.toString();
-        this.activateSubmit= true;
+      if(this.selectedFile) {
+            reader.readAsDataURL(this.selectedFile);
+            reader.onloadend = () => {
+                  this.readerData= reader.result.toString();
+                  this.activateSubmit= true;
+           }
       }
+      
       // const fd = new FormData();
       // fd.append('image', this.selectedFile, this.selectedFile.name);
       //  console.log(fd);

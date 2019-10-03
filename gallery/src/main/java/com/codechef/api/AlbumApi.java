@@ -38,5 +38,14 @@ public class AlbumApi{
 		String successMessage = "Album added successfully";
 		ResponseEntity<List<Album>> response = new ResponseEntity<List<Album>>(albums, HttpStatus.OK);
 		return response;
-	}
+    }
+    
+    @PostMapping(value="addLikes")
+    public ResponseEntity<?> addLikes(@RequestBody Album album) throws Exception  {
+           userAlbumService.addLikes(album);   
+		String successMessage = "Album added successfully";
+		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
+        return response;
+    }
 }
+	
