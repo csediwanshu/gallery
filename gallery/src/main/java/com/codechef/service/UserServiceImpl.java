@@ -1,6 +1,9 @@
 package com.codechef.service;
 
+import java.util.List;
+
 import com.codechef.dao.UserDao;
+import com.codechef.model.Album;
 import com.codechef.model.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +30,11 @@ public class UserServiceImpl implements UserService{
             throw new Exception("NO_USER_FOUND");
         }
         return user;
+    }
+
+    @Override
+    public List<Album> fetchAllPublicAlbums(Integer any) throws Exception{
+        return userDao.fetchAllPublicAlbums(any);
     }
 
 }

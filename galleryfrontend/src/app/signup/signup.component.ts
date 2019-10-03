@@ -34,7 +34,6 @@ export class SignupComponent implements OnInit {
       this.successMessage=null;
       this.user=this.registerUserForm.value as User;
       this.user.profilePicture=this.readerData;
-      console.log(this.user);
       this.signupService.registerUser(this.user).subscribe(
         message=>{
           this.successMessage = message;

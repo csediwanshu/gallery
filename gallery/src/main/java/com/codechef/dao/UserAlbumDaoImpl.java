@@ -26,6 +26,7 @@ public class UserAlbumDaoImpl implements UserAlbumDao{
         albumEntity.setAlbumName(album.getAlbumName());
         albumEntity.setDescription(album.getDescription());
         albumEntity.setLikesCount(0);
+        albumEntity.setAlbumType(album.getAlbumType());
         albumEntity.setCoverPhoto(album.getCoverPhoto().getBytes());
         albumEntity.setTimeOfCreation(LocalDateTime.now());
         userEntity.getAlbumEntity().add(albumEntity);
@@ -48,6 +49,7 @@ public class UserAlbumDaoImpl implements UserAlbumDao{
             album.setAlbumName(albumEntity.getAlbumName());
             album.setDescription(albumEntity.getDescription());
             album.setLikesCount(albumEntity.getLikesCount());
+            album.setAlbumType(albumEntity.getAlbumType());
             album.setCoverPhoto(new String(albumEntity.getCoverPhoto()));
             album.setTimeOfCreation(albumEntity.getTimeOfCreation());
             albums.add(album);

@@ -15,8 +15,15 @@
                         <label>Cover Photo</label>
                         <input type="file" class="form-control" (change)="onUpload($event)">
                       </div>
+                              
+        <div class="form-check-inline">
+              <label>Acces Control</label> &nbsp;
+              <input type="radio" class="form-check" formControlName="albumType" name="albumType" value="1" checked> Public &nbsp; &nbsp;
+              <input type="radio" class="form-check" formControlName="albumType" name="albumType" value="0" > Private 
+        </div>
+        <br>
           
-          <button type="submit">Submit</button>
+        <button type="submit">Submit</button>
         </form>
       <br/>
       </div>

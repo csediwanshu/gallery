@@ -7,4 +7,5 @@ export class Photo{
     photoData:String;
     photoUser:String
     photoAlbumId:number;
+    photoType:number;
 }

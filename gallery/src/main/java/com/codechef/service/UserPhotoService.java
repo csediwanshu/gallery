@@ -9,4 +9,5 @@ public interface UserPhotoService{
     public String addPhoto(Photo photo) throws Exception;
     public String addLikes(Photo photo) throws Exception;
     public String removePhoto(Photo photo) throws Exception;
+    public String changeAccess(Photo photo) throws Exception;
 }

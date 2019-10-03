@@ -8,11 +8,15 @@
             <p class="card-text">{{p.description}}</p>
             <input type="button" value="Remove" (click)="removePhoto(p)"> 
           </div>
-          <div class="card-footer">
-            <small class="text-muted">DateTime: {{p.timeOfCreation}} </small><br>
-           <br>
+        <div class="card-footer">
+            <small class="text-muted">DateTime: {{p.timeOfCreation}} </small><br><br>
             <input type="button" value="likes" (click)="addLike(p)"> 
-            <p >{{p.likesCount}}</p>
+            <p class="card-text">{{p.likesCount}}</p>
+            <h5 class="card-title">PhotoType</h5>
+            <p class="card-text" *ngIf="p.photoType">public</p>
+            <p class="card-text" *ngIf="!p.photoType">private</p>
+            <!-- <input type="button" value="changeAccess" (click)="changeAccess(p)">  -->
+
           </div>
         </div>
 </div>
@@ -29,6 +33,12 @@
                 <label>Description</label>
                 <textarea cols="30" rows="10" class="form-control" formControlName="description"></textarea>
             </div>
+            <div class="form-check-inline">
+              <label>Acces Control</label> &nbsp;&nbsp;
+              <input type="radio" class="form-check" formControlName="photoType" name="photoType" value="1" checked> Public &nbsp; &nbsp;
+              <input type="radio" class="form-check" formControlName="photoType" name="photoType" value="0" > Private 
+        </div>
+        <br>
           <button type="submit">Submit</button>
         </form>
       <br/>

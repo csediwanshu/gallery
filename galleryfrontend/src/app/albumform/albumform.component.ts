@@ -26,7 +26,8 @@ user:User;
     this.album=new Album();
     this.albumForm=this.formBuilder.group({
       albumName:[this.album.albumName,Validators.required],
-      description:[this.album.description,Validators.required]
+      description:[this.album.description,Validators.required],
+      albumType:[this.album.albumType,Validators.required]
     })
   }
 
@@ -50,11 +51,11 @@ user:User;
       this.album.coverPhoto=this.readerData;
       this.user  =JSON.parse(sessionStorage.getItem('user'));
        this.album.albumUser=this.user.username;
-
        this.albumFormService.addAlbum(this.album).subscribe(
          
          (res) => {
       this.successMessage =res;
+      this.albumForm.reset();
       this.router.navigate(['/home/viewalbum']);
     })
   }

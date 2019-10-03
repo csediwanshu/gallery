@@ -21,12 +21,15 @@ export class ViewalbumComponent implements OnInit {
 
   ngOnInit() {
     this.user=JSON.parse(sessionStorage.getItem('user'));
-    this.viewAlbumService.getAlbum(this.user.username).subscribe(
-      (res)=>{this.albums=res ,console.log(res)}
-    )
+    this.fetchAlbum();
     // this.activatedRoute.params.subscribe((params) => {
     //   console.log(params['id'])
     // })
+  }
+  fetchAlbum(){
+    this.viewAlbumService.getAlbum(this.user.username).subscribe(
+      (res)=>{this.albums=res ,console.log(res)}
+    )
   }
 
   addLikes(album:Album){
@@ -45,7 +48,10 @@ export class ViewalbumComponent implements OnInit {
     this.errorMessage=null;
     this.successMessage=null;
     this.viewAlbumService.removeAlbum(album).subscribe(
-      (res)=>{this.successMessage=res}
+      (res)=>{this.successMessage=res
+        this.fetchAlbum();
+      
+      }
     )
   }
 

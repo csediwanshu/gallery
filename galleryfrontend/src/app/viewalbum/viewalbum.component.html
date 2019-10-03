@@ -14,6 +14,9 @@
             <small class="text-muted">DateTime: {{album.timeOfCreation}} </small><br>
             <p >{{album.likesCount}}</p>
             <input type="button" value="likes" (click)="addLikes(album)"> 
+            <h5 class="card-title">PhotoType</h5>
+            <p class="card-text" *ngIf="album.albumType">public</p>
+            <p class="card-text" *ngIf="!album.albumType">private</p>
           </div>
         </div>
 

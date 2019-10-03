@@ -30,8 +30,10 @@ export class PhotoComponent implements OnInit {
   ngOnInit() {
     this.album=JSON.parse(sessionStorage.getItem('album'));
    this.user=JSON.parse(sessionStorage.getItem('user'));
+   this.photo=new Photo();
    this.photoForm=this.formBuilder.group({
-    description:[this.album.description,Validators.required]
+    description:[this.photo.description,Validators.required],
+    photoType:[this.photo.photoType,Validators.required]
   })
   this.fetchPhotos();
     }
@@ -68,6 +70,7 @@ export class PhotoComponent implements OnInit {
          this.photoService.addPhoto(this.photo).subscribe(
            (res) => {
         this.successMessage =res;
+        this.photoForm.reset();
         this.fetchPhotos();
       })
 
@@ -87,6 +90,14 @@ export class PhotoComponent implements OnInit {
       this.errorMessage=null;
       this.successMessage=null;
       this.photoService.removePhoto(photo).subscribe(
+        res=>{this.successMessage=res}
+      )
+    }
+
+    changeAccess(photo:Photo){
+      this.errorMessage=null;
+      this.successMessage=null;
+      this.photoService.changeAccess(photo).subscribe(
         res=>{this.successMessage=res}
       )
     }

@@ -1,5 +1,8 @@
 package com.codechef.api;
 
+import java.util.List;
+
+import com.codechef.model.Album;
 import com.codechef.model.User;
 import com.codechef.service.UserService;
 
@@ -41,6 +44,19 @@ public class LoginAPI {
        try {
 		User user=userService.checkLogin(credentials[0],credentials[1]);
 		ResponseEntity<User> response = new ResponseEntity<User>(user, HttpStatus.OK);
+		return response;
+	   } 
+	   catch(Exception e) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+	   }
+		
+	}
+
+	@PostMapping("fetchAllPublicAlbums")
+	public ResponseEntity<?> fetchAllPublicAlbums(@RequestBody Integer any)  {
+       try {
+		List<Album> allAlbums=userService.fetchAllPublicAlbums(any);
+		ResponseEntity<List<Album>> response = new ResponseEntity<List<Album>>(allAlbums, HttpStatus.OK);
 		return response;
 	   } 
 	   catch(Exception e) {

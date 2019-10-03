@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { PhotoComponent } from './photo/photo.component';
 import { AlbumformComponent } from './albumform/albumform.component';
 import { ViewalbumComponent } from './viewalbum/viewalbum.component';
+import { AllpublicalbumComponent } from './allpublicalbum/allpublicalbum.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ViewalbumComponent } from './viewalbum/viewalbum.component';
     HomeComponent,
     PhotoComponent,
     AlbumformComponent,
-    ViewalbumComponent
+    ViewalbumComponent,
+    AllpublicalbumComponent
   ],
   imports: [
     BrowserModule,

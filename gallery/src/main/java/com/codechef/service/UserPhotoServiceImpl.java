@@ -42,4 +42,10 @@ public class UserPhotoServiceImpl implements UserPhotoService{
         return userPhotoDao.removePhoto(photo);
     }
 
+    @Override
+    public String changeAccess(Photo photo) throws Exception{
+        return userPhotoDao.changeAccess(photo);
+    }
+
+
 }

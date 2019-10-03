@@ -35,6 +35,7 @@ public class UserPhotoDaoImpl implements UserPhotoDao{
             photo.setDescription(p.getDescription());
             photo.setPhotoId(p.getPhotoId());
             photo.setPhotoData(new String(p.getPhotoData()));
+            photo.setPhotoType(p.getPhotoType());
             photo.setLikesCount(p.getLikesCount());
             photo.setTimeOfCreation(p.getTimeOfCreation());
            photos2.add(photo);
@@ -47,11 +48,11 @@ public class UserPhotoDaoImpl implements UserPhotoDao{
     @Override
     public String addPhoto(Photo photo) throws Exception{
         AlbumEntity albumEntity=entityManager.find(AlbumEntity.class,photo.getPhotoAlbumId());
-        System.out.println("fwwwwwwwwwwwwwww"+albumEntity.getAlbumName());
         PhotoEntity photoEntity=new PhotoEntity();
         photoEntity.setDescription(photo.getDescription());
         photoEntity.setLikesCount(0);
         photoEntity.setPhotoData(photo.getPhotoData().getBytes());
+        photoEntity.setPhotoType(photo.getPhotoType());
         photoEntity.setTimeOfCreation(LocalDateTime.now());
        if(albumEntity.getPhotoEntity()!=null){
            albumEntity.getPhotoEntity().add(photoEntity);
@@ -78,6 +79,16 @@ public class UserPhotoDaoImpl implements UserPhotoDao{
        PhotoEntity photoEntity=entityManager.find(PhotoEntity.class,photo.getPhotoId());
        entityManager.remove(photoEntity);
         return "Succesfully Remove Image with ImageId" + photoEntity.getPhotoId();
+    }
+
+    @Override
+    public String changeAccess(Photo photo) throws Exception{
+       PhotoEntity photoEntity=entityManager.find(PhotoEntity.class,photo.getPhotoId());
+       if(photoEntity.getPhotoType()==1)
+       {photoEntity.setPhotoType(0);}
+       else 
+       {photoEntity.setPhotoType(1);}
+        return "Succesfully Change Acess with ImageId" + photoEntity.getPhotoId();
     }
 
 

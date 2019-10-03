@@ -33,6 +33,11 @@ export class PhotoService {
     return this.http.post(url,photo,{responseType:'text'}).pipe(catchError(this.handleError));
   }
 
+  changeAccess(photo:Photo):Observable<any>{
+    const url = environment.photoAPI+'/changeAccess'
+    return this.http.post(url,photo,{responseType:'text'}).pipe(catchError(this.handleError));
+  }
+
 
   private handleError(err: HttpErrorResponse) {
     console.log(err);

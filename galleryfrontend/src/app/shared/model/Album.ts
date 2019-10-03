@@ -6,5 +6,6 @@
  timeOfCreation:Date;
  likesCount: number;
  albumUser:String;
+ albumType:number;
 
 }

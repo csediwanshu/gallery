@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { PhotoComponent } from './photo/photo.component';
 import { AlbumformComponent } from './albumform/albumform.component';
 import { ViewalbumComponent } from './viewalbum/viewalbum.component';
+import { AllpublicalbumComponent } from './allpublicalbum/allpublicalbum.component';
 
 
 const routes: Routes = [
@@ -22,9 +23,11 @@ const routes: Routes = [
     {path: 'viewalbum',component: ViewalbumComponent,
   
   }, 
+  {path: 'allpublicalbum', component: AllpublicalbumComponent}
  
   ]},
-  {path: 'showAlbum/:id', component: ViewalbumComponent}
+  // {path: 'showAlbum/:id', component: ViewalbumComponent},
+ 
   
   
 ];

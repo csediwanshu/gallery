@@ -2,9 +2,16 @@ package com.codechef.dao;
 
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
+import com.codechef.entity.AlbumEntity;
 import com.codechef.entity.UserEntity;
+import com.codechef.model.Album;
 import com.codechef.model.User;
 import org.springframework.stereotype.Repository;
 
@@ -59,5 +66,28 @@ public class UserDaoImpl implements UserDao {
         // System.out.println(user.getUsername());
         return user;
 
+    }
+
+    @Override
+    public List<Album> fetchAllPublicAlbums(Integer any) throws Exception{
+        System.out.println("abbabksbkjsnksknsknssnsskjsnjks"+any);
+        Query query=entityManager.createQuery("select a from AlbumEntity a where a.albumType=?1");
+        query.setParameter(1, any);
+        List<AlbumEntity> albumEntities=query.getResultList();
+        System.out.println("ahbhjabbabbabababahhbahbahbahaba+"+albumEntities.size());
+        List<Album> albums=new ArrayList<Album>();
+
+        for(AlbumEntity albumEntity:albumEntities){
+            Album album = new Album();
+            album.setAlbumId(albumEntity.getAlbumId());
+            album.setAlbumName(albumEntity.getAlbumName());
+            album.setDescription(albumEntity.getDescription());
+            album.setLikesCount(albumEntity.getLikesCount());
+            album.setAlbumType(albumEntity.getAlbumType());
+            album.setCoverPhoto(new String(albumEntity.getCoverPhoto()));
+            album.setTimeOfCreation(albumEntity.getTimeOfCreation());
+            albums.add(album);
+        }
+        return albums;
     }
 }
