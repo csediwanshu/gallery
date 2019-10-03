@@ -25,6 +25,8 @@ LocalDateTime timeOfCreation;
 Integer likesCount;
 @Column(name="photouser")
 String photoUser;
+@Column(name="photoalbum")
+String photoAlbumId;
 
 
 @Lob
@@ -80,6 +82,15 @@ String photoUser;
 		this.photoUser = photoUser;
 	}
 
+    public String getPhotoAlbumId() {
+        return photoAlbumId;
+    }
+
+    public void setPhotoAlbumId(String photoAlbumId) {
+        this.photoAlbumId = photoAlbumId;
+    }
+
+    
     
 
 }

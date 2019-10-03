@@ -6,4 +6,5 @@ export class Photo{
     likesCount:number;
     photoData:String;
     photoUser:String
+    photoAlbumId:number;
 }

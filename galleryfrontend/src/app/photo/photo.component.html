@@ -1,1 +1,37 @@
-<p>photo works!</p>
+<button type="button" (click)="photoFormBool=false" >Add Photos</button>
+<div class="card-group" *ngIf="photoFormBool">
+        <div class="card" *ngFor="let photo of photos " >
+        
+          <img [src]="album.coverPhoto" class="card-img-top" alt="">
+          <div class="card-body">
+            <h5 class="card-title">Photo Description</h5>
+            <p class="card-text">{{album.description}}</p>
+            <input type="button" value="openAlbum" (click)="intoAlbum(album)"> 
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">DateTime: {{album.timeOfCreation}} </small><br>
+            <p >{{album.likesCount}}</p>
+            <input type="button" value="likes" (click)="addLikes(album)"> 
+          </div>
+        </div>
+</div>
+
+<div class="container" *ngIf="!photoFormBool">
+        <h1>Add New Photo</h1>
+        <form [formGroup]="photoForm" (ngSubmit)="newAlbum()">
+    
+                <div class="form-group">
+                        <label>Photo</label>
+                        <input type="file" class="form-control" (change)="onUpload($event)">
+                      </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea cols="30" rows="10" class="form-control" formControlName="description"></textarea>
+            </div>
+
+            
+          
+          <button type="submit">Submit</button>
+        </form>
+      <br/>
+      </div>

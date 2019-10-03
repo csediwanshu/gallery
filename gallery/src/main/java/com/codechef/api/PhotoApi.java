@@ -25,12 +25,12 @@ public class PhotoApi{
 
     @Autowired
     private UserPhotoService userPhotoService;
-    @PostMapping(value="/getPhoto")
-    ResponseEntity<?> getImages(@RequestBody User user) throws Exception{
+    @PostMapping(value="/getPhotos")
+    ResponseEntity<?> getImages(@RequestBody Integer albumId) throws Exception{
 
         try{
             List<Photo> photoList=new ArrayList<Photo>();
-            photoList=userPhotoService.getImages(user);
+            photoList=userPhotoService.getImages(albumId);
             ResponseEntity<List<Photo>> response = new ResponseEntity<List<Photo>>(photoList, HttpStatus.OK);
             return response;
 

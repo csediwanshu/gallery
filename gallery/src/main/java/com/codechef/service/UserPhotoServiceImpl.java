@@ -21,8 +21,8 @@ public class UserPhotoServiceImpl implements UserPhotoService{
     private UserPhotoDao userPhotoDao;
 
     @Override
-    public List<Photo> getImages(User user) throws Exception{
-        return userPhotoDao.getImages(user);
+    public List<Photo> getImages(Integer albumId) throws Exception{
+        return userPhotoDao.getImages(albumId);
     }
 
     @Override

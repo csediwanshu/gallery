@@ -7,7 +7,7 @@ import com.codechef.model.User;
 
 public interface UserPhotoDao{
 
-    public List<Photo> getImages(User user) throws Exception;
+    public List<Photo> getImages(Integer albumId) throws Exception;
 
     public String addPhoto(Photo photo) throws Exception;
 }
