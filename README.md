@@ -1,5 +1,7 @@
 # codechefround3
 #Run Both FrontEnd And Backend on VisualStudio
+#connect the backend with database 
+with xampp or run tablescript.sql
 
 #Add all the Extension
 Spring boot
