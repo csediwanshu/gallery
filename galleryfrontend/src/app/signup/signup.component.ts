@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '../Shared/model/User';
 import { SignupService } from './signup.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -15,7 +16,7 @@ export class SignupComponent implements OnInit {
   selectedFile: File;
   activateSubmit = false;
   readerData: string;
-  constructor(private formBuilder: FormBuilder,private signupService:SignupService) { }
+  constructor(private formBuilder: FormBuilder,private signupService:SignupService,private router:Router) { }
 
   ngOnInit() {
     this.user=new User();
@@ -38,12 +39,10 @@ export class SignupComponent implements OnInit {
         message=>{
           this.successMessage = message;
           this.registerUserForm.reset();
-        }
-        ,
-        error=>{
-          this.errorMessage=<any> error;
-        }
+        },
+        error=>{this.errorMessage=<any> error;}
       )
+      this.router.navigate(["/login"]);
     }
 
     onUpload(event) {

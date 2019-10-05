@@ -19,8 +19,7 @@ export class AllpublicalbumComponent implements OnInit {
 
   fetchAllPublicAlbums(){
     this.allpublicalbumService.fetchAllPublicAlbums().subscribe(
-      res=>{this.albums=res,console.log(res);
-      }
+      res=>{this.albums=res}
     )
   }
     addLikes(album:Album){

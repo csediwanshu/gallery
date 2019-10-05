@@ -76,4 +76,20 @@ public String removeAlbum(Album album){
     entityManager.remove(albumEntity);
     return "Suceessfully Removed Album with Album Name: " + albumEntity.getAlbumName();
 }
+
+@Override
+public String changeAccess(Album album){
+    
+    AlbumEntity albumEntity = entityManager.find(AlbumEntity.class,album.getAlbumId());
+
+   if(albumEntity.getAlbumType()==0)
+   {
+       albumEntity.setAlbumType(1);
+   }
+   else 
+   {
+       albumEntity.setAlbumType(0);
+   }
+   return "Suceessfully Changed  acess with Album Name: " + albumEntity.getAlbumName();
+}
 }

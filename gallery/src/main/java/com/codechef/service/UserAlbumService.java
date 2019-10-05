@@ -9,5 +9,6 @@ public interface UserAlbumService{
     public List<Album> getAlbum(String username);
     public String addLikes(Album album);
     public String removeAlbum(Album album);
+    public String changeAccess(Album album);
 
 }

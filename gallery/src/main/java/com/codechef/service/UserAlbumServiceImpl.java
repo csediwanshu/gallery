@@ -36,6 +36,11 @@ return userAlbumDao.getAlbum(username);
         return userAlbumDao.removeAlbum(album);
     }
 
+    @Override
+    public String changeAccess(Album album){
+        return userAlbumDao.changeAccess(album);
+    }
+
 
 
 }

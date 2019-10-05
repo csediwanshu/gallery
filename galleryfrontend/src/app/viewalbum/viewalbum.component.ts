@@ -28,7 +28,7 @@ export class ViewalbumComponent implements OnInit {
   }
   fetchAlbum(){
     this.viewAlbumService.getAlbum(this.user.username).subscribe(
-      (res)=>{this.albums=res ,console.log(res)}
+      (res)=>{this.albums=res}
     )
   }
 
@@ -55,4 +55,14 @@ export class ViewalbumComponent implements OnInit {
     )
   }
 
+  changeAccess(album:Album){
+    this.errorMessage=null;
+    this.successMessage=null;
+    console.log(album);
+    
+    this.viewAlbumService.changeAccess(album).subscribe(
+      res=>{console.log(res);
+         this.successMessage=res;this.fetchAlbum();}
+    )
+  }
 }

@@ -17,13 +17,12 @@ export class PhotoComponent implements OnInit {
   album:Album;
   user:User;
   photoFormBool:boolean=true;
-
   errorMessage: String;
   successMessage: String;
   selectedFile:File;
   readerData: string;
   photoForm: FormGroup;
-  activateSubmit:boolean=false;
+  
   photo:Photo;
   constructor(private formBuilder: FormBuilder,private photoService:PhotoService,private router:Router) { }
 
@@ -54,7 +53,6 @@ export class PhotoComponent implements OnInit {
             reader.readAsDataURL(this.selectedFile);
             reader.onloadend = () => {
                   this.readerData= reader.result.toString();
-                  this.activateSubmit= true;
              }
       }
     }
@@ -80,7 +78,7 @@ export class PhotoComponent implements OnInit {
     addLike(photo1:Photo){
       this.errorMessage=null;
       this.successMessage=null;
-   photo1.likesCount=photo1.likesCount+ 1;
+      photo1.likesCount=photo1.likesCount+ 1;
       this.photoService.addLikes(photo1).subscribe(
         res=>{this.successMessage=res}
       )
@@ -96,9 +94,8 @@ export class PhotoComponent implements OnInit {
 
     changeAccess(photo:Photo){
       this.errorMessage=null;
-      this.successMessage=null;
       this.photoService.changeAccess(photo).subscribe(
-        res=>{this.successMessage=res}
+        res=>{this.successMessage=res;this.fetchPhotos();}
       )
     }
   

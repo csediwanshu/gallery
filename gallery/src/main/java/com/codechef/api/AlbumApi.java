@@ -75,5 +75,19 @@ public class AlbumApi{
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
         }
     }
+
+    @PostMapping(value="changeAccess")
+    public ResponseEntity<?> changeAccess(@RequestBody Album album) throws Exception  {
+        try{ 
+            System.err.println("xvyujgyuedhudehbckdbunsckunsdkbskibdisdbbdwjbwdbjhb "+album.getAlbumType() + " " +album.getAlbumId());
+       
+		String successMessage = userAlbumService.changeAccess(album); 
+		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
+        return response;
+    }
+        catch(Exception e){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
+        }
+    }
 }
 	

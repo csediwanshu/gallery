@@ -27,6 +27,11 @@ export class ViewalbumService {
     return this.http.post(url,album,{ responseType: 'text'}).pipe(catchError(this.handleError));
   }
 
+  changeAccess(album:Album):Observable<any>{
+    const url=environment.addAlbumAPI  +'/changeAccess/';
+    return this.http.post(url,album,{ responseType: 'text'}).pipe(catchError(this.handleError));
+  }
+
 
   private handleError(err: HttpErrorResponse) {
     console.log(err);

@@ -15,8 +15,6 @@ user:User;
 
   ngOnInit() {
     this.user  =JSON.parse(sessionStorage.getItem('user'));
-    console.log(this.user);
-
   }
 
 }

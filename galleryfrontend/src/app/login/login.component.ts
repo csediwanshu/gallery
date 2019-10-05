@@ -27,20 +27,19 @@ export class LoginComponent implements OnInit {
       this.successMessage=null;
     this.username=frontUsername;
     this.password=frontPassword;
-    console.log(this.username);
 
     this.loginService.checkLogin(this.username,this.password).subscribe(
-     ses=>   { 
+    
+      ses=>{ 
       sessionStorage.setItem('user', JSON.stringify(ses));
-      // this.user  =JSON.parse(sessionStorage.getItem('user'));
-      // console.log(this.user);
       this.router.navigate(['/home']); 
       },
 
-      (err:HttpErrorResponse)=>{
-        this.errorMessage = err.message;
+      (error)=>{
+        this.errorMessage = error;
       }
-    )
+      )
+
 
   }
 }

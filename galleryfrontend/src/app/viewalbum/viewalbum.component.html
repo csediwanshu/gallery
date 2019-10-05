@@ -17,6 +17,7 @@
             <h5 class="card-title">PhotoType</h5>
             <p class="card-text" *ngIf="album.albumType">public</p>
             <p class="card-text" *ngIf="!album.albumType">private</p>
+            <input type="button" value="changeAccess" (click)="changeAccess(album)"> 
           </div>
         </div>
 
